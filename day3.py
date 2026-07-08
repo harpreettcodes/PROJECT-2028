@@ -1,6 +1,6 @@
 print("---------------VOTING ELIGIBLITY CHECKER-------------------")
 age = int(input("Enter your age:"))
-if age>=18:
+if age >= 18:
  print("You are Eligible")
  voter_id= input("Do you have a voter id card? (YES/NO)").lower()
  if voter_id=="yes":
