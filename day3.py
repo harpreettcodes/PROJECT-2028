@@ -11,7 +11,7 @@ if age >= 18:
   print("Invalid input please type yes or no")
 else:
  print("Sorry,you're not eligible")
- print("You need to need wait", 18-age,"more years to vote" )
+ print("You need to need wait", 18 - age ,"more years to vote" )
 print()
 print("THANK FOR USING MY PROGRAM")
 print("------------------------------------------------------------")
