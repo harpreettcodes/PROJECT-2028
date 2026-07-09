@@ -11,8 +11,16 @@ if age >= 18:
  elif voter_id=="no":
    print("Please apply for a voter ID first")
 else:
+<<<<<<< HEAD
  print("sorry,you're not eligible")
  print("You need to need wait", 18 - age,"more years to vote" )
 print()
 print("THANK FOR USING MY PROGRAM")
 print("----------------------------------------------------------------")
+=======
+ print("Sorry,you're not eligible")
+ print("You need to need wait", 18 - age ,"more years to vote" )
+print()
+print("THANK FOR USING MY PROGRAM")
+print("------------------------------------------------------------")
+>>>>>>> 04711f47c14b128428140d31832282f7154fee1f
