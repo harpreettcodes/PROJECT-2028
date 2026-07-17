@@ -10,12 +10,12 @@ marks[1]=85
 print(marks)
 print("----------------------------------------------------")
 #append
-print("----------------------Input-------------------------")
+print("----------------------Append------------------------")
 colors=["Red", "Blue", "Green"]
 colors.append("Green")
 print(colors)  
 #append
-print("----------------------Append------------------------")
+print("---------------------Value replacing----------------")
 marks=[80,75,90,95,100]                                                                                                                                         
 marks[1]=85
 print(marks)  
