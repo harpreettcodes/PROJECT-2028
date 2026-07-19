@@ -32,7 +32,11 @@ for z in range(5):
 for i in range(len(games)):
     print(i,games[i])
 r=input("Enter a game to remove: ").lower()
-games.remove(r)
+if r in games:
+ games.remove(r)
+ print("Game removed successfully")
+else:
+ print("Game not found")
 for j in range(len(games)):
     print(j,games[j])
 print("--------------------------------------------")
