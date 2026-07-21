@@ -20,4 +20,6 @@ elif choice ==3:
     print()   
 else:
     print("Invalid input")
-  
+print("===============================================")
+print("          Thanks For Using This Program        ")
+print("===============================================")
