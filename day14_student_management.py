@@ -99,8 +99,8 @@ while True:
    elif choice ==5:
     if not students:
      print("===================================================")
-     print("         Student name updated succesfully!         ")
-     print("         Student age updated succesfully!          ")
+     print("                  No Students Found.               ")
+     print("            Please add a student first.            ")
      print("===================================================")
      continue
     found = False
