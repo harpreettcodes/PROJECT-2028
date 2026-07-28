@@ -21,18 +21,15 @@ def view_students(students):
     print("Age: ",student["age"]) 
     print("--------------------------") 
 def search_student(students):
-  found = False
-  search_student=input("Enter student name: ").strip()
-  for student in students:
-   if search_student == student["name"]:
-    found = True
-    print("Student Found")
-    print("--------------------------") 
-    print("Name:",student["name"])
-    print("Age: ",student["age"]) 
-    print("--------------------------")
-    break      
-  if found == False:
+  search_name=input("Enter student name: ").strip()
+  student=find_student(students,search_name)
+  if student is not None:
+   print("Student Found")
+   print("--------------------------") 
+   print("Name:",student["name"])
+   print("Age: ",student["age"]) 
+   print("--------------------------")
+  else:
    print("===================================================")
    print("                  Student Not Found                ")
    print("===================================================")
@@ -43,11 +40,9 @@ def update_student(students):
   print("            Please add a student first.            ")
   print("===================================================")
   return # not (continue) cz it work only in loop. continue → skip to the next loop iteration.break → exit a loop.return → exit a function.
- found = False
  inp=input("Enter student name you want to update: ").strip()
- for student in students:
-  if inp == student["name"]:
-   found = True
+ student=find_student(students,inp)
+ if student is not None:
    print("1. Update Name")
    print("2. Update Age")
    print("3. Update Both")
@@ -58,14 +53,12 @@ def update_student(students):
     print("===================================================")
     print("          Student name updated succesfully!        ")
     print("===================================================")
-    break
    elif choice2 ==2:
     new_age=int(input("Enter new age: "))
     student["age"]= new_age
     print("===================================================")
     print("         Student age updated succesfully!          ")
     print("===================================================")
-    break
    elif choice2 ==3:
     new_name=input("Enter new name: ").strip()
     new_age=int(input("Enter new age: "))
@@ -75,8 +68,8 @@ def update_student(students):
     print("         Student name updated succesfully!         ")
     print("         Student age updated succesfully!          ")
     print("===================================================")
-    break
- if found == False:
+    
+ else:
   print("===================================================")
   print("                 Student Not Found                 ")
   print("===================================================") 
@@ -87,31 +80,36 @@ def delete_student(students):
   print("            Please add a student first.            ")
   print("===================================================")
   return
- found = False
  inp2=input("Enter student name you want to delete: ").strip()
+ student=find_student(students,inp2)
+ if student is not None:
+  students.remove(student)
+  print("===================================================")
+  print("          Student removed successfully!            ")
+  print("===================================================")
+ else:
+   print("===================================================")
+   print("               Student Not Found                   ")
+   print("===================================================")
+def find_student(students, name):
  for student in students:
-  if inp2 == student["name"]:
-   found = True
-   students.remove(student)
-   print("===================================================")
-   print("          Student removed successfully!            ")
-   print("===================================================")
-   break
-  if found == False:
-   print("Student Not Found")
+   if name == student["name"]:
+    return student
+ return None
+  
 print("===================================================")
 print("              Student Management System            ")
 print("===================================================")
 while True:
    print("===================================================")
    print("                  1. Add Student                   ")
-   print("                  2. View Stuudents                ")
+   print("                  2. View Students                ")
    print("                  3. Search Student                ")
    print("                  4. Update Student                ")
    print("                  5. Delete Student                ")
    print("                  6. Exit                          ")
    print("===================================================")
-   choice=int(input("Enter 1 to add student,2 to view all students,3 To search a student,4 To update student name or age: ,5 To delete student: ,6 To exit: "))
+   choice=int(input("Enter your choice: "))
    if choice ==1:
     add_student(students)
    elif choice ==2:
