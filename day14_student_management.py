@@ -1,7 +1,11 @@
 students = []
 def add_student(students):
   students_name=input("Enter Student Name: ").strip()
-  students_age=int(input("Enter Student Age: "))
+  try:
+   students_age=int(input("Enter Student Age: "))
+  except:
+   print("Invalid input! Please enter a number.")
+   return
   student = {"name":students_name,"age": students_age} 
   students.append(student)
   print("===================================================")
@@ -46,7 +50,11 @@ def update_student(students):
    print("1. Update Name")
    print("2. Update Age")
    print("3. Update Both")
-   choice2=int(input("Please Select choose one from above: "))
+   try:
+    choice2=int(input("Please Select choose one from above: "))
+   except:
+    print("Invalid input! Please enter a number.")
+    return
    if choice2 == 1:
     new_name=input("Enter new name: ").strip()
     student["name"]= new_name
@@ -54,14 +62,22 @@ def update_student(students):
     print("          Student name updated succesfully!        ")
     print("===================================================")
    elif choice2 ==2:
-    new_age=int(input("Enter new age: "))
+    try:
+     new_age=int(input("Enter new age: "))
+    except:
+     print("Invalid input! Please enter a number.")
+     return
     student["age"]= new_age
     print("===================================================")
     print("         Student age updated succesfully!          ")
     print("===================================================")
    elif choice2 ==3:
     new_name=input("Enter new name: ").strip()
-    new_age=int(input("Enter new age: "))
+    try:
+     new_age=int(input("Enter new age: "))
+    except:
+     print("Invalid input! Please enter a number.")
+     return
     student["name"]= new_name
     student["age"]= new_age
     print("===================================================")
@@ -109,7 +125,11 @@ while True:
    print("                  5. Delete Student                ")
    print("                  6. Exit                          ")
    print("===================================================")
-   choice=int(input("Enter your choice: "))
+   try:
+    choice=int(input("Enter your choice: "))
+   except:
+    print("Invalid input! Please enter a number.")
+    continue
    if choice ==1:
     add_student(students)
    elif choice ==2:
