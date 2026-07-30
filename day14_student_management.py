@@ -144,7 +144,7 @@ while True:
     print()
     break 
    else:
-    print(" Invalid Input! ")
+    print("Invalid choice! Please select 1, 2,3,4,5 or 6")
 print("===================================================")
 print("             Thanks For Using This Program         ")
 print("===================================================") 
