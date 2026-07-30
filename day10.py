@@ -20,7 +20,10 @@ print("WOW! you guessed it right")
 print("You guessed it in",attempt,"attempts")
 print("THANKS FOR PLAYING") 
 print("------------------------------------------------")
+#Dice rolls
+print("-------------------Dice Roll--------------------")
 import random
 f=int(input("How many times u want to roll dice= "))
 for i in range(1,f+1):
  print("Dice Print",i,"=",random.randint(1,6))
+ print("------------------------------------------------")
