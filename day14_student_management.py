@@ -1,4 +1,4 @@
-students = []
+students=[]
 def add_student(students):
   students_name=input("Enter Student Name: ").strip()
   try:
@@ -8,6 +8,7 @@ def add_student(students):
    return
   student = {"name":students_name,"age": students_age} 
   students.append(student)
+  save_students(students)
   print("===================================================")
   print("              Student added successfully           ")  
   print("===================================================")
@@ -58,6 +59,7 @@ def update_student(students):
    if choice2 == 1:
     new_name=input("Enter new name: ").strip()
     student["name"]= new_name
+    save_students(students)
     print("===================================================")
     print("          Student name updated succesfully!        ")
     print("===================================================")
@@ -68,6 +70,7 @@ def update_student(students):
      print("Invalid input! Please enter a number.")
      return
     student["age"]= new_age
+    save_students(students)
     print("===================================================")
     print("         Student age updated succesfully!          ")
     print("===================================================")
@@ -80,6 +83,7 @@ def update_student(students):
      return
     student["name"]= new_name
     student["age"]= new_age
+    save_students(students)
     print("===================================================")
     print("         Student name updated succesfully!         ")
     print("         Student age updated succesfully!          ")
@@ -100,6 +104,7 @@ def delete_student(students):
  student=find_student(students,inp2)
  if student is not None:
   students.remove(student)
+  save_students(students)
   print("===================================================")
   print("          Student removed successfully!            ")
   print("===================================================")
@@ -112,7 +117,25 @@ def find_student(students, name):
    if name == student["name"]:
     return student
  return None
-  
+def save_students(students):
+  with open("student.txt","w")as file:
+   for student in students:
+    file.write(student["name"]+","+str(student["age"])+"\n")
+def load_students():
+ students=[]
+
+ try:
+  with open("student.txt","r")as file:
+   lines=file.readlines()
+   for line in lines:
+    part=line.split(",")
+    student={"name":(part[0]),
+             "age":int(part[1].strip())}
+    students.append(student)
+ except FileNotFoundError:
+  pass
+ return students
+students = load_students()
 print("===================================================")
 print("              Student Management System            ")
 print("===================================================")
