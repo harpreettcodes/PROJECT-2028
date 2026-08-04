@@ -29,3 +29,31 @@ class car:
 car1 = car("BMW","Black",2028)
 print(car1.brand,car1.color,car1.year)
 print("-------------------------------------------------------")
+ #Methods
+print("------------------------Methods------------------------")
+class Student:
+ def __init__(self,name,age):
+  self.name = name
+  self.age = age
+ def display(self):
+  print("Name:",self.name)
+  print("Age:",self.age)
+student1 =Student("Harpreet",20)
+student1.display()
+print("-------------------------------------------------------")
+#change_age method
+print("----------------------change_age-----------------------")
+class Student:
+ def __init__(self,name,age):
+  self.name = name
+  self.age = age
+ def display(self):
+  print("Name:",self.name)
+  print("Age:",self.age)
+ def change_age(self,new_age):
+  self.age = new_age
+student1 =Student("Harpreet",20)
+student1.change_age(21)
+student1.display()
+print("-------------------------------------------------------")
+
